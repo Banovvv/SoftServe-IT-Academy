@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using SoftServe_IT_Academy.Project.Data;
+using SoftServe_IT_Academy.Project.Data.Seeder;
 
 namespace AccediaTest
 {
@@ -7,7 +7,8 @@ namespace AccediaTest
     {
         static void Main(string[] args)
         {
-            
+            var context = new ApplicationDbContext();
+            Seeder.Seed(context);
         }
-    }    
+    }
 }
