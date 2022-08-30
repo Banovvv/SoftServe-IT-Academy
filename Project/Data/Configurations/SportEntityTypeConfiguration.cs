@@ -15,7 +15,7 @@ namespace SoftServe_IT_Academy.Project.Data.Configurations
 
             sport.Property(x => x.Description)
                 .IsRequired(false)
-                .HasMaxLength(250)
+                .HasMaxLength(2500)
                 .IsUnicode(false);
         }
     }

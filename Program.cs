@@ -8,6 +8,10 @@ namespace AccediaTest
         static void Main(string[] args)
         {
             var context = new ApplicationDbContext();
+
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+
             Seeder.Seed(context);
         }
     }

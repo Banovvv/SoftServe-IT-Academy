@@ -16,7 +16,7 @@ namespace SoftServe_IT_Academy.Project.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime CreatedOn { get; set; }
-        public DateTime PostedOn { get; set; }
+        public DateTime? PostedOn { get; set; }
 
         public int StateId { get; set; }
         public virtual State State { get; set; }
