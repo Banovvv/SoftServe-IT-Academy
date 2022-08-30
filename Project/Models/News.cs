@@ -8,6 +8,7 @@ namespace SoftServe_IT_Academy.Project.Models
         public News()
         {
             Teams = new HashSet<NewsTeam>();
+            Comments = new HashSet<Comment>();
             Authors = new HashSet<NewsAuthor>();
         }
 
@@ -24,6 +25,7 @@ namespace SoftServe_IT_Academy.Project.Models
         public virtual Category Category { get; set; }
 
         public virtual ICollection<NewsTeam> Teams { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<NewsAuthor> Authors { get; set; }
     }
 }
