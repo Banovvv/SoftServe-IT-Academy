@@ -8,6 +8,9 @@ namespace SoftServe_IT_Academy.Project.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User> user)
         {
+            user.HasIndex(x => x.Username)
+                .IsUnique();
+
             user.Property(x => x.Email)
                 .IsRequired(true)
                 .HasMaxLength(50)
