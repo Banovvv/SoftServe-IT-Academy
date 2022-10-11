@@ -13,38 +13,20 @@ namespace SoftServe_IT_Academy.Tasks._Solid
     }
     public class TeamLead : ILead, IProgrammer
     {
-        public void AssignTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void AssignTask() => throw new NotImplementedException();
 
-        public void CreateSubTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateSubTask() => throw new NotImplementedException();
 
-        public void WorkOnTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void WorkOnTask() => throw new NotImplementedException();
     }
     public class Manager : ILead
     {
-        public void AssignTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void AssignTask() => throw new NotImplementedException();
 
-        public void CreateSubTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateSubTask() => throw new NotImplementedException();
     }
     public class Programmer : IProgrammer
     {
-        public void WorkOnTask()
-        {
-            throw new NotImplementedException();
-        }
+        public void WorkOnTask() => throw new NotImplementedException();
     }
 }
