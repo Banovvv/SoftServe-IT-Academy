@@ -3,7 +3,12 @@ using System.IO;
 
 namespace SoftServe_IT_Academy.Tasks._Solid
 {
-    public class DbLogger
+    public interface ILogger
+    {
+        void LogMessage(string message);
+    }
+
+    public class DbLogger : ILogger
     {
         public void LogMessage(string mMessage)
         {
@@ -11,7 +16,7 @@ namespace SoftServe_IT_Academy.Tasks._Solid
         }
     }
 
-    public class FileLogger
+    public class FileLogger : ILogger
     {
         public void LogMessage(string mStackTrace)
         {
@@ -21,15 +26,16 @@ namespace SoftServe_IT_Academy.Tasks._Solid
 
     public class ExceptionLogger
     {
-        public void LogIntoFile(Exception mException)
+        private ILogger _logger;
+
+        public ExceptionLogger(ILogger logger)
         {
-            FileLogger objFileLogger = new FileLogger();
-            objFileLogger.LogMessage(GetUserReadableMessage(mException));
+            _logger = logger;
         }
-        public void LogIntoDataBase(Exception mException)
+
+        public void LogException(Exception mException)
         {
-            DbLogger objDbLogger = new DbLogger();
-            objDbLogger.LogMessage(GetUserReadableMessage(mException));
+            _logger.LogMessage(GetUserReadableMessage(mException));
         }
         private string GetUserReadableMessage(Exception ex)
         {
@@ -50,11 +56,11 @@ namespace SoftServe_IT_Academy.Tasks._Solid
             }
             catch (IOException ex)
             {
-                new ExceptionLogger().LogIntoDataBase(ex);
+                new ExceptionLogger(new FileLogger()).LogException(ex);
             }
             catch (Exception ex)
             {
-                new ExceptionLogger().LogIntoFile(ex);
+                new ExceptionLogger(new DbLogger()).LogException(ex);
             }
         }
     }
